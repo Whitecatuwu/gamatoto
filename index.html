@@ -30,8 +30,8 @@
 <body>
     <h1>加碼多多日誌生成器</h1>
 
-    <input type="text" id="userInput" placeholder="輸入文字">
-    <button onclick="generateContent()">生成內容</button>
+    <input type="text" id="userInput" placeholder="加碼多多">
+    <button onclick="generateContent()">生成日誌</button>
 
     <div id="output"></div>
 
@@ -49,8 +49,8 @@
                 const text = await response.text();
                 return text.trim().split("\n").map(line => line.split("|")[0].trim());
             } catch (error) {
-                console.error(error);
-                alert(`讀取 ${filePath} 失敗，請檢查路徑或檔案是否存在。`);
+                //console.error(error);
+                //alert(`讀取 ${filePath} 失敗，請檢查路徑或檔案是否存在。`);
                 return [];
             }
         }
@@ -62,23 +62,21 @@
         }
 
         function generateContent() {
-            if (a.length === 0 || b.length === 0) {
-                init();
-            }
             const input = document.getElementById('userInput').value;
-            if (!input) {
-                alert('請輸入文字');
-                return;
-            }
-
             const randomA = a[Math.floor(Math.random() * a.length)];
             const randomB = b[Math.floor(Math.random() * b.length)];
+            const defaultInput = "加碼多多";
 
-            const output = `${input}${randomA}${randomB}`;
-            document.getElementById('output').textContent = output;
+            if (!input) {
+                document.getElementById('output').textContent = `${defaultInput}${randomA}${randomB}`;
+            }
+            else{
+                document.getElementById('output').textContent = `${input}${randomA}${randomB}`;
+            }
+            
         }
         
-        //init();
+        init();
     </script>
 
 </body>
