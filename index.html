@@ -30,48 +30,35 @@
 <body>
     <h1>加碼多多日誌生成器</h1>
 
-    <input type="text" id="userInput" placeholder="加碼多多">
+    <input type="text" id="userInput" placeholder="輸入名稱">
     <button onclick="generateContent()">生成日誌</button>
 
     <div id="output"></div>
 
+    <script src="js/load.js"></script>
     <script>
-        let a = [];
-        let b = [];
-
-        // 讀取 CSV 文件並解析內容
-        async function loadCSV(filePath) {
-            try {
-                const response = await fetch(filePath);
-                if (!response.ok) {
-                    throw new Error(`無法加載文件: ${filePath}`);
-                }
-                const text = await response.text();
-                return text.trim().split("\n").map(line => line.split("|")[0].trim());
-            } catch (error) {
-                //console.error(error);
-                //alert(`讀取 ${filePath} 失敗，請檢查路徑或檔案是否存在。`);
-                return [];
-            }
-        }
+        let log2 = [];
+        let log3 = [];
+        let members = [];
 
         // 初始化 a 和 b 內容
         async function init() {
-            a = await loadCSV("GamatotoExpedition_Log_2_tw.csv");
-            b = await loadCSV("GamatotoExpedition_Log_3_tw.csv");
+            log2 = await loadLog2();
+            log3 = await loadLog3();
+            members = await loadMembers();
         }
 
         function generateContent() {
             const input = document.getElementById('userInput').value;
-            const randomA = a[Math.floor(Math.random() * a.length)];
-            const randomB = b[Math.floor(Math.random() * b.length)];
-            const defaultInput = "加碼多多";
+            const randomLog2 = log2[Math.floor(Math.random() * log2.length)];
+            const randomLog3 = log3[Math.floor(Math.random() * log3.length)];
+            const defaultInput = members[Math.floor(Math.random() * members.length)];
 
             if (!input) {
-                document.getElementById('output').textContent = `${defaultInput}${randomA}${randomB}`;
+                document.getElementById('output').textContent = `${defaultInput}${randomLog2}${randomLog3}`;
             }
             else{
-                document.getElementById('output').textContent = `${input}${randomA}${randomB}`;
+                document.getElementById('output').textContent = `${input}${randomLog2}${randomLog3}`;
             }
             
         }
