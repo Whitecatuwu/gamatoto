@@ -1,0 +1,63 @@
+/* 圖片容器樣式 */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    left: -10%;
+
+    /*background-color: antiquewhite;*/
+}
+
+/* 圖片樣式 */
+.title-container img {
+    /*background-color: rgb(230, 140, 23);*/
+
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    box-shadow: none;
+    
+    /* 防止圖片被選擇/拖曳 */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    
+    /* 防止拖曳行為 */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+}
+
+.title-container input {
+    /*background-color: rgb(230, 140, 23);*/
+
+    position: relative;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.title-container button {
+    /*background-color: rgb(230, 140, 23);*/
+
+    position: relative;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .title-container {
+        padding: 10px;
+    }
+    
+    .content-title {
+        max-width: 95%;
+    }
+}

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>加碼多多日誌生成器</title>
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/output-box.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,52 +21,26 @@
             margin: 10px;
             font-size: 16px;
         }
-        #output {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-            white-space: pre-wrap;
-        }
     </style>
 </head>
 <body>
-    <h1>加碼多多日誌生成器</h1>
+    <span class="title-container">
+        <img src="img/title.png" draggable="false" oncontextmenu="return false;">
+    </span>
 
     <input type="text" id="userInput" placeholder="輸入名稱">
-    <button onclick="generateContent()">生成日誌</button>
+    <button id="generateContent">生成日誌</button>
 
-    <div id="output"></div>
+    <span class="output-container">
+        <img src="img/outputbox.png" draggable="false" oncontextmenu="return false;">
+        <span id="output"></span>
+    </span>
 
     <script src="js/load.js"></script>
+    <script src="js/background-changer.js"></script>  
+    <script src="js/generateContent.js"></script>
     <script>
-        let log2 = [];
-        let log3 = [];
-        let members = [];
-
-        // 初始化 a 和 b 內容
-        async function init() {
-            log2 = await loadLog2();
-            log3 = await loadLog3();
-            members = await loadMembers();
-        }
-
-        function generateContent() {
-            const input = document.getElementById('userInput').value;
-            const randomLog2 = log2[Math.floor(Math.random() * log2.length)];
-            const randomLog3 = log3[Math.floor(Math.random() * log3.length)];
-            const defaultInput = members[Math.floor(Math.random() * members.length)];
-
-            if (!input) {
-                document.getElementById('output').textContent = `${defaultInput}${randomLog2}${randomLog3}`;
-            }
-            else{
-                document.getElementById('output').textContent = `${input}${randomLog2}${randomLog3}`;
-            }
-            
-        }
-        
-        init();
+    
     </script>
 
 </body>

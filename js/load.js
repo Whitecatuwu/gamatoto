@@ -16,15 +16,24 @@ async function loadCSV(filePath) {
 
 async function loadMembers() {
     const text = await loadCSV("GamatotoExpedition_Members_name_tw.csv");
-    return text.trim().split("\n").map(line => line.split("|")[3]).filter(item => item !== '@');
+    return text.trim()
+        .split("\n")
+        .map(line => line.split("|")[3])
+        .filter(item => item !== "@" && item !== null && item !== undefined);
 }
 
 async function loadLog2() {
     const text = await loadCSV("GamatotoExpedition_Log_2_tw.csv");
-    return text.trim().split("\n").map(line => line.split("|")[0].trim()).filter(item => item !== '@');
+    return text.trim()
+        .split("\n")
+        .map(line => line.split("|")[0].trim())
+        .filter(item => item !== "@" && item !== null && item !== undefined);
 }
 
 async function loadLog3() {
     const text = await loadCSV("GamatotoExpedition_Log_3_tw.csv");
-    return text.trim().split("\n").map(line => line.split("|")[0].trim()).filter(item => item !== '@');
+    return text.trim()
+        .split("\n")
+        .map(line => line.split("|")[0].trim())
+        .filter(item => item !== "@" && item !== null && item !== undefined);
 }
