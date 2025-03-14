@@ -6,13 +6,13 @@ function updateBackgroundByTime() {
     // 根據時間選擇背景
     if (hour >= 6 && hour < 16) {
         // 早晨 6:00 - 15:59
-        backgroundImage = '../img/morning.png';
+        backgroundImage = 'img/morning.png';
     } else if (hour >= 16 && hour < 19) {
         // 黃昏 16:00 - 18:59
-        backgroundImage = '../img/twilight.png';
+        backgroundImage = 'img/twilight.png';
     } else {
         // 夜晚 19:00 - 5:59
-        backgroundImage = '../img/evening.png';
+        backgroundImage = 'img/evening.png';
     }
 
     // 更換背景
