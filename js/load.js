@@ -27,7 +27,7 @@ async function loadLog2() {
     return text.trim()
         .split("\n")
         .map(line => line.split("|")[0].trim())
-        .filter(item => item !== "@" && item !== null && item !== undefined);
+        .filter(item => item !== "＠" && item !== null && item !== undefined);
 }
 
 async function loadLog3() {
