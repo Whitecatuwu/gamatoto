@@ -19,7 +19,7 @@ async function loadMembers() {
     return text.trim()
         .split("\n")
         .map(line => line.split("|")[3])
-        .filter(item => item !== "@" && item !== null && item !== undefined);
+        .filter(item => item !== "＠" && item !== null && item !== undefined);
 }
 
 async function loadLog2() {
@@ -35,5 +35,5 @@ async function loadLog3() {
     return text.trim()
         .split("\n")
         .map(line => line.split("|")[0].trim())
-        .filter(item => item !== "@" && item !== null && item !== undefined);
+        .filter(item => item !== "＠" && item !== null && item !== undefined);
 }

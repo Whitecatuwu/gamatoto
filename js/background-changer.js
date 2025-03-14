@@ -23,6 +23,9 @@ function updateBackgroundByTime() {
 document.addEventListener('DOMContentLoaded', async () => {
     updateBackgroundByTime();
 
+    const min = 1;
+    const second = 0;
+
     // 每小時檢查一次是否需要更新背景
-    setInterval(updateBackgroundByTime, 60 * 60 * 1000);
+    setInterval(updateBackgroundByTime, 1000 * (min * 60 + second));
 });
