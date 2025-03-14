@@ -42,7 +42,6 @@
 }
 
 #output {
-
     position: absolute;
     display: flex;
     flex-direction: column-reverse;
@@ -73,7 +72,9 @@
     }
     
     #output {
+        max-height: 275px;
         width: 90%;
+        font-size: 16px;
     }
 }
 
